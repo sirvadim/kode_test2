@@ -18,10 +18,15 @@ class App extends Component {
     getSets.on('data', set => {
       this.sets.push({
         name: set.name,
-        logo: set.logoUrl
+        logo: set.logoUrl,
+        symbolUrl: set.symbolUrl,
+        standardLegal: set.standardLegal,
+        expandedLegal: set.expandedLegal,
+        releaseDate: set.releaseDate
       })
     })
     getSets.on('end', () => {
+      this.sets.reverse()
       this.setState({
         sets: this.sets
       })
@@ -32,7 +37,7 @@ class App extends Component {
     console.log('start')
     console.log(this.state.sets)
     return (
-      <div>
+      <div class = "set-gallery" >
         {
           this.state.sets.map(set =>
             <Sets set={set}/>
