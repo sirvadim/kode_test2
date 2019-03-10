@@ -12,7 +12,7 @@ class Sets extends Component {
   }
   render() {
     return (
-      <Link className = "set hvr-grow" to = {`/cards?setCode=${this.props.set.code}`}>
+      <Link style={{ textDecoration: 'none' }} className = "set hvr-grow" to = {`/cards?setCode=${this.props.set.code}`}>
         <div>
             <div className = "content-image">
                 <img className = "set-image" src={this.props.set.logo}/>

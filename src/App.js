@@ -17,7 +17,7 @@ class App extends Component {
               <Route path = "/sets" render={()=> this.props.store.sets.map((set, index) =>
                 <Sets key={index} set={set}/>
               )}/>
-              <Route path = "/cards" search = "?setCode=:code" component = {Cards}/>
+              <Route exact path = "/cards" search = "?setCode=:code" component = {Cards}/>
               <Redirect from="/" exact to="/sets" />
             </Switch>
           </div>

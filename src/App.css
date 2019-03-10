@@ -125,3 +125,35 @@ image {
   display: block;
   position: relative;
 }
+
+.media {
+  display: flex;
+}
+
+.set-content {
+  padding: 1.5rem;
+}
+
+.column {
+  display: block;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: .75rem;
+}
+
+.pkmn-gallery img {
+  background: transparent url(/static/media/card-back-small.ce3a314e.png) no-repeat 50%;
+  background-size: 95%;
+  margin: 10px 20px 10px 0;
+  width: 240px;
+  cursor: pointer;
+}
+
+.hvr-grow:hover {
+  transform: scale(1.1);
+}
+
+.pkmn-gallery {
+  text-align: center;
+}

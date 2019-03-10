@@ -24,6 +24,6 @@ export const asyncGetCards = (code) => dispatch => {
     let getCards = pokemon.card.all({ setCode: code })
     getCards.on('data', card => cards.push(card))
     getCards.on('end', () => {
-        dispatch({ type: 'LOAD_CARDS', cards: cards });
+        return dispatch({ type: 'LOAD_CARDS', cards: cards, cardsLoaded: true });
     })
 }
