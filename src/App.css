@@ -1,3 +1,9 @@
+.section {
+  flex-grow: 1;
+  padding: 3rem 1.5rem;
+  display: block;
+}
+
 .set-gallery {
   margin: 0;
   display: flex;
@@ -14,6 +20,26 @@
   transition-property: transform;
 }
 
+.content-image {
+  height: 140px;
+  text-align: center;
+  padding-top: 15px;
+  position: relative;
+}
+
+.content-image img {
+  max-height: 100%;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+div {
+  display: block;
+}
+
 .set {
   background-color: #fff;
   box-shadow: 0 2px 3px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.1);
@@ -27,15 +53,7 @@
   min-width: 250px;
   flex-grow: 1;
   cursor: pointer;
-  max-width: 405px;
-}
-
-.set-image {
-  height: 140px;
-  padding-top: 15px;
-  text-align: center;
-  display: block;
-  position: relative;
+  max-width: 305px;
 }
 
 audio, img, video {
@@ -50,16 +68,6 @@ audio, img, video {
 .image.is-48x48 {
   height: 48px;
   width: 48px;
-}
-
-.set-gallery .set .media .image img {
-  max-height: 100%;
-}
-
-.image img {
-  display: block;
-  height: auto;
-  width: 100%;
 }
 
 .content ul {

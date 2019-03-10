@@ -1,51 +1,39 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
+import { connect } from 'react-redux'
 import logo from './logo.svg';
 import './App.css';
 import Sets from './Screens/Sets/Sets'
-import pokemon from 'pokemontcgsdk'
+import Cards from './Screens/Cards/Cards'
+import { asyncGetSets } from './actions/loadSets'
 class App extends Component {
-  constructor() {
-    super();
-    this.sets = []
-    this.state = {
-      sets: this.sets
-    }
-    this.getSets()
-  }
-
-  getSets() {
-    let getSets = pokemon.set.all()
-    getSets.on('data', set => {
-      this.sets.push({
-        name: set.name,
-        logo: set.logoUrl,
-        symbolUrl: set.symbolUrl,
-        standardLegal: set.standardLegal,
-        expandedLegal: set.expandedLegal,
-        releaseDate: set.releaseDate
-      })
-    })
-    getSets.on('end', () => {
-      this.sets.reverse()
-      this.setState({
-        sets: this.sets
-      })
-    })
-  }
 
   render() {
-    console.log('start')
-    console.log(this.state.sets)
     return (
-      <div class = "set-gallery" >
-        {
-          this.state.sets.map(set =>
-            <Sets set={set}/>
-          )
-        }
-      </div>
+      <BrowserRouter>
+        <div className = "section">
+          <div className = "set-gallery">
+            <Switch>
+              <Route path = "/sets" render={()=> this.props.store.sets.map((set, index) =>
+                <Sets key={index} set={set}/>
+              )}/>
+              <Route path = "/cards" search = "?setCode=:code" component = {Cards}/>
+              <Redirect from="/" exact to="/sets" />
+            </Switch>
+          </div>
+        </div>
+      </BrowserRouter>
     );
   }
 }
 
-export default App;
+export default connect(
+  state => ({
+    store: state
+  }),
+  dispatch => ({
+    onGetSets: () => {
+      dispatch(asyncGetSets());
+    }
+  })
+)(App);

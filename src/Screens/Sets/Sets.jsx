@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../App.css'
+import { Link } from 'react-router-dom'
 class Sets extends Component {
   standardLegal() {
       if(this.props.set.standardLegal)
@@ -10,26 +11,25 @@ class Sets extends Component {
       return <li>Expanded Legal</li>
   }
   render() {
-    console.log(this.props)
     return (
-      <div class = "set hvr-grow">
+      <Link className = "set hvr-grow" to = {`/cards?setCode=${this.props.set.code}`}>
         <div>
-            <div class = "content">
-                <img class = "set-image" src={this.props.set.logo}/>
+            <div className = "content-image">
+                <img className = "set-image" src={this.props.set.logo}/>
             </div>
-            <div class = "set-content">
-                <div class = "media">
-                    <div class = "media-left">
-                        <figure class = "image is-48x48">
-                            <img class = "set-image" src={this.props.set.symbolUrl}/>
+            <div className = "set-content">
+                <div className = "media">
+                    <div className = "media-left">
+                        <figure className = "image is-48x48">
+                            <img className = "set-image" src={this.props.set.symbolUrl}/>
                         </figure>
                     </div>
-                    <div class = "media-content">
-                        <p class = "title is-4">{this.props.set.name}</p>
-                        <p class = "subtitle is-6">{'Released ' + this.props.set.releaseDate}</p>
+                    <div className = "media-content">
+                        <p className = "title is-4">{this.props.set.name}</p>
+                        <p className = "subtitle is-6">{'Released ' + this.props.set.releaseDate}</p>
                     </div>
                 </div>
-                <div class = "content">
+                <div className = "content">
                     <ul>
                         {this.standardLegal()}
                         {this.expandedLegal()}
@@ -37,7 +37,7 @@ class Sets extends Component {
                 </div>
             </div>
         </div>
-      </div>
+      </Link>
     );
   }
 }
