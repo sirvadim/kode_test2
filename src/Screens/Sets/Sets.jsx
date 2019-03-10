@@ -15,13 +15,13 @@ class Sets extends Component {
       <Link style={{ textDecoration: 'none' }} className = "set hvr-grow" to = {`/cards?setCode=${this.props.set.code}`}>
         <div>
             <div className = "content-image">
-                <img className = "set-image" src={this.props.set.logo}/>
+                <img className = "set-image" src={this.props.set.logo} alt={this.props.set.name}/>
             </div>
             <div className = "set-content">
                 <div className = "media">
                     <div className = "media-left">
                         <figure className = "image is-48x48">
-                            <img className = "set-image" src={this.props.set.symbolUrl}/>
+                            <img className = "set-image" src={this.props.set.symbolUrl} alt=""/>
                         </figure>
                     </div>
                     <div className = "media-content">
