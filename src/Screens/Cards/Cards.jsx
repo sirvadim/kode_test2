@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { asyncGetCards } from '../../actions/loadCards'
+import { asyncGetCards } from 'actions/loadCards'
 class Cards extends Component {
   constructor( props ) {
     super(props);
