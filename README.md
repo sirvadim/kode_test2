@@ -5,5 +5,3 @@ cd ./pokemon-test2
 npm install
 npm run start
 ```
-
-### Дополнительная функциональность
